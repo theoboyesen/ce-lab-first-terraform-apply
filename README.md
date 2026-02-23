@@ -1,72 +1,84 @@
-# Lab M4.01 - First Terraform Apply
+# CE Lab – First Terraform Apply
 
-**Course:** Cloud Engineering Bootcamp - Week 4  
-**Module:** Infrastructure as Code with Terraform  
-**Lab Type:** Individual  
-**Estimated Time:** 45-60 minutes
+## Overview
+This lab introduces the core Terraform workflow by creating, modifying, and destroying AWS infrastructure using Infrastructure as Code (IaC). The goal was to understand how Terraform manages resources, state, and changes safely.
 
 ---
 
-## 📋 Overview
+## Lab Objectives Completed
 
-Learn Terraform fundamentals by creating your first infrastructure resource. This lab introduces the core Terraform workflow: init, plan, apply, destroy.
-
-## 🎯 Learning Objectives
-
-- Set up first Terraform project
-- Write basic Terraform configuration  
-- Execute terraform workflow commands
-- Create AWS S3 bucket with Terraform
+- Set up a first Terraform project
+- Write basic Terraform configuration files
+- Use the Terraform workflow: init, plan, apply
+- Create AWS resources using Terraform
 - Understand Terraform state
-- Destroy resources safely
-
-## 📁 Repository Structure
-
-```
-ce-lab-first-terraform-apply/
-├── README.md
-├── main.tf
-├── .gitignore
-├── screenshots/
-│   ├── 01-terraform-init.png
-│   ├── 02-terraform-plan.png
-│   ├── 03-terraform-apply-success.png
-│   ├── 04-s3-console-verification.png
-│   ├── 05-terraform-outputs.png
-│   └── 06-terraform-destroy.png
-└── terraform-workflow.md
-```
-
-## 🚀 Getting Started
-
-1. Clone this repository
-2. Follow lab instructions from course materials
-3. Create `.gitignore` file
-4. Write Terraform configuration
-5. Execute terraform init → plan → apply
-6. Document your workflow
-7. Destroy resources when done
-
-## ✅ Submission Requirements
-
-- **main.tf** with S3 bucket configuration
-- **terraform-workflow.md** documenting each command
-- **Screenshots** of each terraform command
-- **README.md** updated with your findings
-
-## 🎯 Grading Criteria (100 points)
-
-- Terraform Configuration: 30pts
-- Terraform Workflow: 25pts  
-- Documentation: 25pts
-- Git Practices: 10pts
-- Extra Credit: 10pts
-
-## 📚 Resources
-
-- [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [Terraform Workflow](https://developer.hashicorp.com/terraform/intro/core-workflow)
+- Modify existing infrastructure safely
+- Destroy resources to avoid unnecessary costs
 
 ---
 
-**Cloud Engineering Bootcamp** | Week 4 - Infrastructure as Code
+## Resources Created
+
+The following AWS resources were created using Terraform:
+
+- **S3 Bucket**
+  - Globally unique name
+  - Tagged for identification
+  - Versioning enabled
+  - Server-side encryption enabled (AES256)
+
+---
+
+## 🖥️ Commands Executed
+
+The following Terraform commands were used during the lab:
+
+- `terraform init`
+- `terraform validate`
+- `terraform fmt`
+- `terraform plan`
+- `terraform apply`
+- `terraform output`
+- `terraform destroy`
+
+---
+
+## Challenges Faced & Solutions
+
+### Issue: Safe Infrastructure Changes
+- **Challenge:** Understanding how Terraform handles updates without recreating resources.
+- **Solution:** Used `terraform plan` before every apply to preview changes and confirm only the intended modifications would occur.
+
+---
+
+## Key Learnings
+
+- Terraform uses a **declarative approach** to infrastructure.
+- The **state file** is critical and should never be committed to version control.
+- `terraform plan` is essential for safe changes.
+- Terraform can modify existing resources without destroying them.
+- Infrastructure can be fully cleaned up using `terraform destroy`.
+
+---
+
+## Screenshots
+
+Screenshots demonstrating the Terraform workflow and AWS verification:
+
+- Terraform initialization  
+  ![Terraform Init](screenshots/01-terraform-init.png)
+
+- Terraform plan  
+  ![Terraform Plan](screenshots/02-terraform-plan.png)
+
+- Successful apply  
+  ![Terraform Apply](screenshots/03-terraform-apply-success.png)
+
+- AWS S3 Console verification  
+  ![S3 Verification](screenshots/04-s3-console-verification.png)
+
+- Terraform outputs  
+  ![Terraform Outputs](screenshots/05-terraform-outputs.png)
+
+- Resource destruction  
+  ![Terraform Destroy](screenshots/06-terraform-destroy.png)
